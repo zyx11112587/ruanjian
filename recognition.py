@@ -2,6 +2,11 @@ import sys
 import wave
 import json
 from vosk import Model, KaldiRecognizer
+import tensorflow as tf
+tf.compat.v1.disable_eager_execution()
+from ruanjian.ruanjian.reduce_noise import reduce_noise
+from ruanjian.ruanjian.split import separate_audio
+
 
 def recognize_with_timestamps(audio_file, model_path, output_file):
     # 加载模型
@@ -44,7 +49,9 @@ def recognize_with_timestamps(audio_file, model_path, output_file):
             f.write(f"{word}: {start_time:.2f}s - {end_time:.2f}s\n")
 
 # 示例使用
-audio_path = r"C:\Users\zhangyuxuan\Desktop\wav\music_1_1.wav"  # 替换为音频文件路径
+audio_path = r"C:\Users\zhangyuxuan\Desktop\wav\music_2_1.wav"  # 替换为音频文件路径
 model_path = r"C:\Users\zhangyuxuan\Desktop\wav\vosk-model-small-cn-0.22\vosk-model-small-cn-0.22"  # 替换为模型路径
-output_path =r"C:\Users\zhangyuxuan\Desktop\wav\output.txt"  # 替换为输出文件路径
-recognize_with_timestamps(audio_path, model_path, output_path)
+output_path =r"C:\Users\zhangyuxuan\Desktop\wav\output_2.txt"  # 替换为输出文件路径
+reduced_path=reduce_noise(audio_path)
+separated_path=separate_audio(reduced_path)
+recognize_with_timestamps(separated_path, model_path, output_path)
