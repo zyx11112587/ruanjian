@@ -2,7 +2,7 @@ import numpy as np
 import librosa
 
 from ruanjian.ruanjian.load import load_audio
-
+#乐谱识别部分
 
 def detect_notes(audio, sr):
     # 提取音高

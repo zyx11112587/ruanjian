@@ -1,5 +1,5 @@
 import subprocess
-
+#分离音频
 # 输入音频文件路径
 input_audio_path = r"C:\Users\zhangyuxuan\Desktop\wav\music_2_1.wav"
 
