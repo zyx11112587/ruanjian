@@ -3,3 +3,4 @@ demucs
 pydub
 numpy
 vosk
+ffmpeg
