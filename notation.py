@@ -193,8 +193,8 @@ def plot_simplified_score(notes, output_image):
 # Example usage
 # audio_path = "/mnt/data/music_3.wav"  # Replace with your audio file path
 # output_image = "/mnt/data/simplified_score_fixed.png"  # Path to save the image
-audio_path =  r"C:\Users\zhangyuxuan\Desktop\wav\music_3.wav"  # Replace with the actual path to your audio
-output_image =  r"C:\Users\zhangyuxuan\Desktop\wav\simplified_score.png"  # Path to save the generated image
+audio_path =  r"wav\music_3.wav"  # Replace with the actual path to your audio
+output_image =  r"wav\simplified_score.png"  # Path to save the generated image
 # Load the audio and detect notes
 audio, sr = librosa.load(audio_path)
 notes = detect_notes(audio, sr)

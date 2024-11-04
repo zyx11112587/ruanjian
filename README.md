@@ -12,3 +12,13 @@
     2. 将识别结果根据频率对应为相应的音符，转为简谱符号，找到调号
     3. 使用matplotlib.pyplot库将输出分割输出为简谱图片
 ***
+### 需要安装：
+    1. ffmpeg进行格式转化，安装到系统
+    2. vosk中文语音模型，添加到wav文件夹
+    3. 歌曲.wav格式，放在wav文件夹
+    
+[ffmpeg下载](https://www.gyan.dev/ffmpeg/builds/)  
+选择合适压缩包下载后解压，将bin目录添加到系统路径
+***
+[vosk下载界面](https://alphacephei.com/vosk/models)  
+选择中文模型下载解压到wav文件夹

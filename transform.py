@@ -17,6 +17,6 @@ def convert_audio(input_file, output_file):
         print(f"An error occurred: {e}")
 
 # 示例使用
-input_path = r"C:\Users\zhangyuxuan\PycharmProjects\pythonProject\ruanjian\ruanjian\separated\htdemucs\music_2_1\vocals.wav"  # 输入文件路径
-output_path = r"C:\Users\zhangyuxuan\PycharmProjects\pythonProject\ruanjian\ruanjian\separated\htdemucs\music_2_1\vocals_1.wav"  # 输出文件路径
+input_path = r"separated\htdemucs\music_2_1\vocals.wav"  # 输入文件路径
+output_path = r"separated\htdemucs\music_2_1\vocals_1.wav"  # 输出文件路径
 convert_audio(input_path, output_path)  # 假设目标长度是以毫秒为单位

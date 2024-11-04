@@ -1,7 +1,7 @@
 import numpy as np
 import librosa
 
-from ruanjian.ruanjian.load import load_audio
+from ruanjian.load import load_audio
 #乐谱识别部分
 
 def detect_notes(audio, sr):
@@ -28,8 +28,8 @@ def output_simplified_score(notes, output_file):
             f.write(f"{note}: {time:.2f}s\n")
 
 # 示例使用
-audio_path = r"C:\Users\zhangyuxuan\Desktop\wav\music_3.wav"  # 替换为音乐文件路径
-output_path =  r"C:\Users\zhangyuxuan\Desktop\wav\note.txt" # 替换为输出文件路径
+audio_path = r"wav\music_3.wav"  # 替换为音乐文件路径
+output_path =  r"wav\note.txt" # 替换为输出文件路径
 
 audio, sr = load_audio(audio_path)
 notes = detect_notes(audio, sr)
