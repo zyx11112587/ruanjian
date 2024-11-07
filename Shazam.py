@@ -12,11 +12,23 @@ def recognize_song_info(song_path):
 
     for (offset, resp) in recognize_generator:
         if flag:
-                if "track" in resp:
-                    print(f"歌名: {resp['track']['title']}, 歌手: {resp['track']['subtitle']}")
-                    flag = False
-                else:
-                    print("抱歉，没有找到你的歌曲(╯︵╰,)")
+            # 找到歌手和歌名
+            if "track" in resp:
+                track = resp['track']
+                print(f"歌名: {track['title']}, 歌手: {track['subtitle']}")
+
+                # 找到歌曲的专辑
+                album_info = '未知专辑'
+                for section in track.get('sections', []):
+                    for meta in section.get('metadata', []):
+                        if meta.get('title') == 'Альбом':
+                            album_info = meta.get('text', '未知专辑')
+                            break
+                    if album_info != '未知专辑':
+                        break
+                print(f"所属专辑: {album_info}")
+            else:
+                print("抱歉，没有找到你的歌曲(╯︵╰,)")
                 break
         if not flag:
             break
