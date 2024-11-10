@@ -9,6 +9,7 @@ def recognize_song_info(song_path):
         # recognize_generator = Shazam().recognize_song('filename.mp3')
 
     flag = True
+    count=0
 
     for (offset, resp) in recognize_generator:
         if flag:
@@ -23,13 +24,19 @@ def recognize_song_info(song_path):
                     for meta in section.get('metadata', []):
                         if meta.get('title') == 'Альбом':
                             album_info = meta.get('text', '未知专辑')
-                            break
-                    if album_info != '未知专辑':
-                        break
-                print(f"所属专辑: {album_info}")
+                            print(f"所属专辑: {album_info}")
+
+                # 输出歌曲的跳转链接
+                share_href = resp["track"].get("share", {}).get("href", "")
+                if share_href:
+                    print("歌曲链接:", share_href)
+                    count+=1
+
             else:
                 print("抱歉，没有找到你的歌曲(╯︵╰,)")
                 break
+        if(count==5):
+            break
         if not flag:
             break
 
