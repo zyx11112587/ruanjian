@@ -46,7 +46,7 @@ class MainWindow(QDialog, Ui_MainWidgt):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
-        self.disable_buttons()
+        # self.disable_buttons()
         self.pushButton_0.setEnabled(True)
         self.input_edit.setReadOnly(True)
         # 为按钮添加点击事件
@@ -94,7 +94,7 @@ class MainWindow(QDialog, Ui_MainWidgt):
 
     def pushButton_0_clicked(self):
         print(1)
-        self.disable_buttons()
+        # self.disable_buttons()
         self.input_edit.setReadOnly(False)
         self.input_file_label.setText(r"请输入文件路径")
 
@@ -178,8 +178,11 @@ class MainWindow(QDialog, Ui_MainWidgt):
         self.textEdit.setText(f"唤起进程失败：{name}")
 
     def pushButton_3_clicked(self):
-        input_path = r"separated\htdemucs\music_1\vocals.wav"
-        output_path = r"separated\htdemucs\music_1\vocals_1.wav"
+        input_use=self.input_edit.text()
+        file_name_with_extension = os.path.basename(input_use)
+        file_name = os.path.splitext(file_name_with_extension)[0]
+        input_path = f"separated/htdemucs/{file_name}/vocals.wav"
+        output_path = f"separated/htdemucs/{file_name}/vocals_1.wav"
         self.pushButton_3_worker.args= (input_path,output_path,)
         self.label_2.setText(r"输出歌词中...请稍等")
         self.pushButton_3_worker.start()
@@ -226,8 +229,7 @@ class MainWindow(QDialog, Ui_MainWidgt):
 
     def recognize_song(self, song_path):
         try:
-            Shazam.recognize_song_info(song_path)
-            return "Succeed"
+            return Shazam.recognize_song_info(song_path)
         except subprocess.CalledProcessError as e:
             return f"输出歌名失败: {e}"
         except Exception as e:

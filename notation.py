@@ -1,4 +1,7 @@
 import librosa
+import subprocess
+import sys
+import os
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -79,5 +82,14 @@ def plot_notes(notes, notes_per_line=60, output_file='output.png', staff_spacing
     # 保存为图片文件
     plt.savefig(output_file, bbox_inches='tight', pad_inches=0.2)
     plt.show()
+    plt.close()  # 关闭plt对象，避免内存泄漏
+    # 打开图片文件
+
+
+    abs_output_file = os.path.abspath(output_file)
+    if sys.platform.startswith('win'):
+        subprocess.run(['start', abs_output_file], shell=True)
+    else:
+        subprocess.run(['open', abs_output_file])
 
 
