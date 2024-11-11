@@ -6,11 +6,11 @@ import notation
 import Shazam
 from PyQt5.QtWidgets import QApplication, QDialog
 from PyQt5.QtCore import QThread, pyqtSignal
-from ruanjian.get_notes import detect_notes, output_simplified_score
-from ruanjian.load import load_audio
-from ruanjian.recognition import recognize_with_timestamps
-from ruanjian.transform import convert_audio
-from ruanjian.new_ui import Ui_MainWidgt
+from get_notes import detect_notes, output_simplified_score
+from load import load_audio
+from recognition import recognize_with_timestamps
+from transform import convert_audio
+from new_ui import Ui_MainWidgt
 from PyQt5.QtCore import QTimer
 
 #鉴别输入路径的对错

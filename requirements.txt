@@ -5,3 +5,4 @@ numpy
 vosk
 ffmpeg
 PyQt5
+matplotlib

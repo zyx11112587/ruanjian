@@ -1,7 +1,7 @@
 import numpy as np
 import librosa
 
-from ruanjian.load import load_audio
+from load import load_audio
 #乐谱识别部分
 
 def detect_notes(audio, sr):
