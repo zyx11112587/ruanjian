@@ -1,5 +1,7 @@
 # ruanjian
+主函数入口在in.py
 软件工程作业：音频识谱
+Python3.12用不了，PyQt5tools最高支持Python3.9
 ***
 分为两大部分：识别简谱和识别歌词
 ## 一、歌词识别
@@ -22,4 +24,5 @@
 ***
 [vosk下载界面](https://alphacephei.com/vosk/models)  
 选择中文模型下载解压到wav文件夹
+默认需要较大的模型，下载小模型也可以，替换模型路径即可
 
