@@ -1,0 +1,7 @@
+librosa
+demucs
+pydub
+numpy
+vosk
+ffmpeg
+PyQt5
